@@ -141,6 +141,9 @@ template "#{node['gitlab']['git_home']}/gitlab.pub" do
   owner node['gitlab']['git_user']
   group node['gitlab']['git_group']
   mode 0644
+  variables(
+    :public_key => node['gitlab']['public_key']
+  )
 end
 
 # Configure gitlab user to auto-accept localhost SSH keys
